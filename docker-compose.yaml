@@ -1,24 +1,28 @@
+version: "3"
+
 services:
-  memgraph-platform:
-    image: "memgraph/memgraph-platform:2.13.0-memgraph2.13.0-lab2.10.0-mage1.13"
+  memgraph:
+    image: memgraph/memgraph-mage:1.15-memgraph-2.15
     ports:
-      - "7687:7687"
-      - "3000:3000"
-      - "7444:7444"
+      - 7687:7687
+      - 7444:7444
     volumes:
       - mg_lib:/var/lib/memgraph
       - mg_log:/var/log/memgraph
       - mg_etc:/etc/memgraph
+    command: ["--log-level=INFO"]
+
+  lab:
+    image: memgraph/lab:2.12.1
+    ports:
+      - 3000:3000
+    depends_on:
+      - memgraph
     environment:
-      - MEMGRAPH="--log-level=INFO"
-    entrypoint: ["/usr/bin/supervisord"]
-    networks:
-      - memnet
+      - QUICK_CONNECT_MG_HOST=memgraph
+      - QUICK_CONNECT_MG_PORT=7687
 
 volumes:
   mg_lib:
   mg_log:
   mg_etc:
-
-networks:
-  memnet:
