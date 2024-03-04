@@ -10,11 +10,10 @@ services:
       - mg_lib:/var/lib/memgraph
       - mg_log:/var/log/memgraph
       - mg_etc:/etc/memgraph
-    environment:
-      - MEMGRAPH="--log-level=INFO"
+    command: ["--log-level=INFO"]
 
   lab:
-    image: memgraph/lab
+    image: memgraph/memgraph-mage:1.15-memgraph-2.15
     ports:
       - 3000:3000
     depends_on:
