@@ -2,7 +2,7 @@ version: "3"
 
 services:
   memgraph:
-    image: memgraph/memgraph-mage:1.15.1-memgraph-2.15.1
+    image: memgraph/memgraph-mage:1.15.2-memgraph-2.15.2
     ports:
       - 7687:7687
       - 7444:7444
