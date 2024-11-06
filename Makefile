@@ -1,6 +1,6 @@
 IMAGE?=memgraph/memgraph-docker-extension
 
-TAG?=2.20.0
+TAG?=2.21.0
 
 BUILDER=buildx-multi-arch
 
