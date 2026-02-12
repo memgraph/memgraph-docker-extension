@@ -1,6 +1,6 @@
 services:
   memgraph:
-    image: memgraph/memgraph-mage:3.7.2
+    image: memgraph/memgraph-mage:3.8.0
     ports:
       - 7687:7687
       - 7444:7444
@@ -11,7 +11,7 @@ services:
     command: ["--log-level=INFO"]
 
   lab:
-    image: memgraph/lab:3.7.1
+    image: memgraph/lab:3.8.0
     ports:
       - 3000:3000
     depends_on:
