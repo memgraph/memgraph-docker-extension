@@ -11,7 +11,7 @@ services:
     command: ["--log-level=INFO"]
 
   lab:
-    image: memgraph/lab:3.13.1
+    image: memgraph/lab:3.14.0
     ports:
       - 3000:3000
     depends_on:
